@@ -1,36 +1,26 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package arithmetic;
 
-
 import java.util.Scanner;
-import static java.time.Clock.system;
 
-/** This class calls the method to perform 
- * arithmetic operations based on user input
- * execute the code check the output
- * @author sivagamasrinivasan
- * 
- */
-public class Arithmetic 
-{
+public class Arithmetic {
+    public static void main(String[] args) {
+        ArithmeticBase r = new ArithmeticBase();
+        Scanner in = new Scanner(System.in);
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) 
-    {
-       
-        ArithmeticBase r= new ArithmeticBase();
-        Scanner in= new Scanner(System.in);
-        int n= in.nextInt();
-        int m= in.nextInt();
-        double result = r.calculate(m,n);
-        System.out.println("result :" +result); 
-    
+        // Get the values of x and y
+        System.out.println("Enter the value of x: ");
+        double x = in.nextDouble();
+        System.out.println("Enter the value of y: ");
+        double y = in.nextDouble();
+
+        // Get the arithmetic operation
+        System.out.println("Enter arithmetic operation to Perform (PLUS, MINUS, TIMES, DIVIDE): ");
+        String operationStr = in.next();
+
+        // Convert String to Operation enum
+        Operation operation = Operation.valueOf(operationStr.toUpperCase());
+
+        double result = r.calculate(x, y, operation);
+        System.out.println("result: " + result);
     }
 }
-
